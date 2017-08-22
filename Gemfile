@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'omniauth-github'
 gem 'faraday'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -24,6 +25,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'awesome_print'
+  gem 'launchy'
 end
 
 group :development do

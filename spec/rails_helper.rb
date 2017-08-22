@@ -17,6 +17,12 @@ def stub_omniauth
       name: "Jimmy Truong",
       nickname: "jtruong2",
     },
+    "extra" => {
+      "raw_info" => {
+        avatar_url: "https://avatars1.githubusercontent.com/u/25845955?v=4",
+      }
+    },
+
     "credentials" => {
       token: "abcdefg12345",
     }
