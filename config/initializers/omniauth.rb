@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, "YOUR_CONSUMER_API_KEY", "YOUR_CONSUMER_API_SECRET"
+  provider :github, Rails.application.secrets.github_client_id, Rails.application.secrets.github_client_secret
 end

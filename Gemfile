@@ -14,7 +14,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-# gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'omniauth-github'
 gem 'faraday'
@@ -23,6 +22,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
   gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :development do
