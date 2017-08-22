@@ -3,5 +3,5 @@
   <%= link_to "Logout", logout_path, method: :delete %>
 <% else %>
   <h1>Please Sign In</h1>
-  <%= link_to 'Sign in with Github', '/auth/github' %>
+  <%= link_to 'Sign in with Github', "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT_ID']}&scope=repo"  %>
 <% end %>

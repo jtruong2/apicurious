@@ -3,12 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    byebug
-    user = User.from_omniauth.auth(env["omniauth.auth"])
+    @user = User.from_omniauth(request.env["omniauth.auth"])
 
-    if user.valid?
-      session[:user_id] = user.id
-      redirect_to request.env["omniauth.origin"]
+    if @user
+      session[:user_id] = @user.id
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
     end
   end
 

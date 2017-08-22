@@ -23,6 +23,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'awesome_print'
 end
 
 group :development do
