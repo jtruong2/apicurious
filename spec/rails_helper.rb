@@ -12,6 +12,7 @@ require 'vcr'
 VCR.configure do |config|
   config.cassette_library_dir = "spec/cassettes"
   config.hook_into :webmock
+  config.allow_http_connections_when_no_cassette = true
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 def stub_omniauth
@@ -20,7 +21,7 @@ def stub_omniauth
     provider: "github",
     uid: "25845955",
     "info" => {
-      email: "jtruong2@comcast.net",
+      email: "j10172799@gmail.com",
       name: "Jimmy Truong",
       nickname: "jtruong2",
     },
@@ -31,9 +32,9 @@ def stub_omniauth
     },
 
     "credentials" => {
-      token: "abcdefg12345",
+      token: ENV["OAUTH_TOKEN"],
     }
-  })
+    })
 end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

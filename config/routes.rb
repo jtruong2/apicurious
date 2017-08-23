@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: 'logout'
   get '/myaccount', to:'account#show', as: 'account'
   get '/myrepos', to: 'repositories#index'
+  get '/myactivity', to: 'my_activities#index' 
 end

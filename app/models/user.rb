@@ -11,4 +11,16 @@ class User < ApplicationRecord
      user.save!
     end
   end
+
+  def self.find_account(token)
+    GithubService.find_account(token)
+  end
+
+  def self.find_repositories(token, username)
+    GithubService.find_repositories(token, username)
+  end
+
+  def self.my_recent_activity(token, username)
+    GithubService.my_recent_activity(token, username)
+  end
 end

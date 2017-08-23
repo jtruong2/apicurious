@@ -1,8 +1,8 @@
 <h1>My repositories</h1>
 <ul>
-  <% @results.each do |result| %>
-    <li><p>repo id: <%= result[:id] %></p></li>
-    <li><p>repo name: <%= result[:name] %></p></li>
-    <li><p>repo url: <%= result[:html_url] %></p></li><br/>
+  <% @repositories.each do |repo| %>
+    <li><p>repo id: <%= repo[:id] %></p></li>
+    <li><p>repo name: <%= repo[:name] %></p></li>
+    <li><p>repo url: <%= repo[:html_url] %></p></li><br/>
   <% end %>
 </ul>

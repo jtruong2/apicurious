@@ -19,6 +19,11 @@ gem 'omniauth-github'
 gem 'faraday'
 gem 'bootstrap-sass'
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+end
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
@@ -26,8 +31,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print'
   gem 'launchy'
-  gem 'vcr'
-  gem 'webmock'
 end
 
 group :development do

@@ -1,0 +1,41 @@
+class GithubService
+
+  def initialize(token, username)
+    @token = token
+    @username = username
+    @conn = Faraday.new("https://api.github.com") do |faraday|
+      faraday.authorization :Token, @token
+      faraday.adapter Faraday.default_adapter
+    end
+  end
+
+  def self.find_account(token)
+    new(token, nil).find_account
+  end
+
+  def find_account
+    response = @conn.get("/user?access_token=#{@token}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.find_repositories(token, user)
+    new(token, user).find_repositories
+  end
+
+  def find_repositories
+    response = @conn.get("/users/#{@username}/repos")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.my_recent_activity(token, user)
+    new(token, user).my_recent_activity
+  end
+
+  def my_recent_activity
+    repos = GithubService.find_repositories(@token, @username)
+    repos.map do |repo|
+      response = @conn.get("/repos/#{@username}/#{repo[:name]}/commits")
+      JSON.parse(conn.body, symbolize_names: true)
+    end
+  end
+end
