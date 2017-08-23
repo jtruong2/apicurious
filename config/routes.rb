@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   delete 'logout', to: 'sessions#destroy', as: 'logout'
   get '/myaccount', to:'account#show', as: 'account'
+  get '/myrepos', to: 'repositories#index'
 end
