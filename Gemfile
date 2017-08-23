@@ -26,6 +26,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print'
   gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
