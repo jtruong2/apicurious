@@ -2,3 +2,8 @@
 @import "bootstrap";
 @import "account";
 @import "activities";
+@import "session";
+
+body {
+  background-color: gray;
+}
