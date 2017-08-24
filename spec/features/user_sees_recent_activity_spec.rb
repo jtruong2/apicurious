@@ -9,7 +9,7 @@ RSpec.describe "User visits dashboard" do
     VCR.use_cassette("features/user_sees_commits") do
       click_on "View recent activity"
 
-      expect(page).to have_content("2017-08-23T03:42:27Z")
+      expect(page).to have_content("apicurious")
       expect(page).to have_content("starts test for user sees repos")
     end
   end

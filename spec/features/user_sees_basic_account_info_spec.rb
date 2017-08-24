@@ -5,8 +5,9 @@ RSpec.describe "User visits account info", :type => :feature do
 
     visit root_path
     click_on "Sign in with Github"
+
     click_on "Account Information"
-    save_and_open_page
+
     expect(page).to have_content("Jimmy Truong")
     expect(page).to have_content("jtruong2")
     expect(page).to have_content("j10172799@gmail.com")

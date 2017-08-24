@@ -32,10 +32,14 @@ class GithubService
   end
 
   def my_recent_activity
-    repos = GithubService.find_repositories(@token, @username)
-    repos.map do |repo|
-      response = @conn.get("/repos/#{@username}/#{repo[:name]}/commits")
-      JSON.parse(conn.body, symbolize_names: true)
+    commits = {}
+    response = @conn.get("/users/#{@username}/events")
+    result = JSON.parse(response.body, symbolize_names: true)
+    result.each do |event|
+      if event[:payload][:commits]
+        event[:payload][:commits].each {|commit| commits[commit[:message]] = event[:repo][:name]}
+      end
     end
+    commits
   end
 end
