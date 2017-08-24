@@ -16,7 +16,7 @@ describe GithubService do
       VCR.use_cassette("services/find_repositories") do
         user_info = GithubService.find_repositories(ENV["OAUTH_TOKEN"], "jtruong2")
 
-        expect(user_info.count).to eq(39)
+        expect(user_info.count).to eq(30)
       end
     end
   end
