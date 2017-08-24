@@ -55,7 +55,7 @@ class GithubService
   def self.find_organizations(token, user)
     new(token, user).find_organizations
   end
-
+ 
   def find_organizations
     response = @conn.get("/users/#{@username}/orgs")
     JSON.parse(response.body, symbolize_names: true)

@@ -2,6 +2,6 @@
 <%= link_to "View recent activity", activity_path %><br>
 <h3>Organizations: </h3><br/>
 <% @organizations.each do |org| %>
-  <p><%= org[:avatar_url] %> <%= org[:login] %> : <%= org[:description] %></p>
+  <p><%= image_tag(org[:avatar_url], :class => "org-pic" ) %>  <strong><%= org[:login] %></strong> : <%= org[:description] %></p>
 <% end %><br/>
 <%= link_to "Logout", logout_path, method: :delete %>

@@ -11,5 +11,13 @@ describe GithubService do
         expect(user_info[:id]).to eq(25845955)
       end
     end
+
+    it "finds all repositories" do
+      VCR.use_cassette("services/find_repositories") do
+        user_info = GithubService.find_repositories(ENV["OAUTH_TOKEN"], "jtruong2")
+
+        expect(user_info.count).to eq(39)
+      end
+    end
   end
 end

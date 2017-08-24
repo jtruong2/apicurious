@@ -5,9 +5,9 @@ RSpec.describe "User visits dashboard" do
 
     visit root_path
     click_on "Sign in with Github"
-
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Organizations")
-    expect(page).to have_content("1705-BE")
+    VCR.use_cassette("features/user_sees_org") do
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("1705-BE")
+    end
   end
 end
