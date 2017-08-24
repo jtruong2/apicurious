@@ -55,9 +55,36 @@ class GithubService
   def self.find_organizations(token, user)
     new(token, user).find_organizations
   end
- 
+
   def find_organizations
     response = @conn.get("/users/#{@username}/orgs")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.find_followers(token, user)
+    new(token, user).find_followers
+  end
+
+  def find_followers
+    response = @conn.get("/users/#{@username}/followers")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.find_following(token, user)
+    new(token, user).find_following
+  end
+
+  def find_following
+    response = @conn.get("/users/#{@username}/following")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.starred_repos(token, username)
+    new(token, username).starred_repos
+  end
+
+  def starred_repos
+    response = @conn.get("/users/#{@username}/starred")
     JSON.parse(response.body, symbolize_names: true)
   end
 end

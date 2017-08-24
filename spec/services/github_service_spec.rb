@@ -51,5 +51,29 @@ describe GithubService do
         expect(organizations.first[:login]).to eq("1705-BE")
       end
     end
+
+    it "finds all followers" do
+      VCR.use_cassette("services/followers") do
+        followers = GithubService.find_followers(token, username)
+
+        expect(followers.count).to eq(2)
+      end
+    end
+
+    it "finds users that I follow" do
+      VCR.use_cassette("services/following") do
+        following = GithubService.find_following(token, username)
+
+        expect(following.count).to eq(3)
+      end
+    end
+
+    it "finds starred repos count" do
+      VCR.use_cassette("services/starred") do
+        starred = GithubService.starred_repos(token, username)
+
+        expect(starred.count).to eq(3)
+      end
+    end
   end
 end

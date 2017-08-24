@@ -5,7 +5,19 @@
   <li>user id: <%= current_user.uid %></li>
   <li>email: <%= current_user.email %></li>
 </ul>
-<p>Followers: <%= @results[:followers] %></p>
-<p>Following: <%= @results[:following] %></p>
-<p>Number of public repos: <%= @results[:public_repos] %></p>
+
+<p><strong>Followers(<%= @results[:followers] %>)</strong></p>
+<% @followers.each do |user| %>
+  <%= image_tag(user[:avatar_url], :class => "followers") %>
+  <p><%= user[:login] %></p>
+<% end %>
+
+<p><strong>Following(<%= @results[:following] %>)</strong></p>
+<% @following.each do |user| %>
+  <%= image_tag(user[:avatar_url], :class => "following") %>
+  <p><%= user[:login] %></p>
+<% end %>
+
+<p>Number of public repos: <%= link_to @results[:public_repos], myrepos_path %></p>
 <p>Number of public gists: <%= @results[:public_gists] %></p>
+<p>Number of starred repos: <%= @starred_repos.count %></p>

@@ -1,5 +1,4 @@
 <h1>Welcome, <%= current_user.username %></h1>
-<%= link_to "View recent activity", activity_path %><br>
 <h3>Organizations: </h3><br/>
 <% @organizations.each do |org| %>
   <p><%= image_tag(org[:avatar_url], :class => "org-pic" ) %>  <strong><%= org[:login] %></strong> : <%= org[:description] %></p>

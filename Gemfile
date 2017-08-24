@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print'
   gem 'launchy'
+  gem 'simplecov'
 end
 
 group :development do
