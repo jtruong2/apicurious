@@ -5,9 +5,9 @@ RSpec.describe "User visits dashboard" do
 
     visit root_path
     click_on "Sign in with Github"
-    expect(current_path).to eq(dashboard_path)
 
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Organizations")
-    expect(page).to have_content("")
+    expect(page).to have_content("1705-BE")
   end
 end

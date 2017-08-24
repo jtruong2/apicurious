@@ -5,10 +5,9 @@ RSpec.describe "User visits dashboard" do
 
     visit root_path
     click_on "Sign in with Github"
+    click_on "View recent activity"
 
-    VCR.use_cassette("features/user_sees_commits") do
-      click_on "View recent activity"
-
+      VCR.use_cassette("features/user_sees_commits") do
       expect(page).to have_content("apicurious")
       expect(page).to have_content("starts test for user sees repos")
     end

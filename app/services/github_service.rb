@@ -42,4 +42,22 @@ class GithubService
     end
     commits
   end
+
+  def self.following_activity(token, user)
+    new(token, user).following_activity
+  end
+
+  def following_activity
+    response = @conn.get("/users/#{@username}/received_events")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.find_organizations(token, user)
+    new(token, user).find_organizations
+  end
+
+  def find_organizations
+    response = @conn.get("/users/#{@username}/orgs")
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
